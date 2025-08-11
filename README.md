@@ -58,3 +58,11 @@ This project is licensed under the terms in the LICENSE file.
 
 ## Author
 Created for Python and Git learning purposes.
+
+## Changelog
+- v1.0.0 - Initial repository setup
+- Added basic Python scripts
+- Implemented project structure
+
+---
+*Happy coding and git practicing! 🐍*
