@@ -146,3 +146,53 @@ print("🎯 Menu system ready - Stage 9 Complete!")
 print("📂 Load function ready - Stage 8 Complete!")
 
 print("👀 Transaction viewer ready - Stage 5 Complete!")
+
+# Add this after Stage 9
+
+def main():
+    """Main program loop"""
+    load_data()  # Load existing data on startup
+    
+    while True:
+        display_menu()
+        choice = get_user_choice()
+        
+        if choice == 1:
+            amount = float(input("Enter income amount: $"))
+            description = input("Enter description: ")
+            add_transaction(amount, "Income", description, "income")
+        
+        elif choice == 2:
+            amount = float(input("Enter expense amount: $"))
+            print("Categories:", ", ".join(finance_data["categories"]))
+            category = input("Enter category: ")
+            description = input("Enter description: ")
+            add_transaction(amount, category, description, "expense")
+        
+        elif choice == 3:
+            display_balance()
+        
+        elif choice == 4:
+            view_transactions()
+        
+        elif choice == 5:
+            analyze_by_category()
+        
+        elif choice == 6:
+            save_data()
+        
+        elif choice == 7:
+            load_data()
+        
+        elif choice == 8:
+            save_data()  # Auto-save before exit
+            print("👋 Thank you for using Personal Finance Tracker!")
+            break
+        
+        else:
+            print("❌ Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+print("🎉 Personal Finance Tracker Complete - Stage 10 Complete!")
