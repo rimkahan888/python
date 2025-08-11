@@ -54,4 +54,20 @@ def display_balance():
     print(f"📉 Total Expenses: ${total_expenses:.2f}")
     print(f"📊 Net Savings: ${total_income - total_expenses:.2f}")
 
-print("📋 Balance display function ready - Stage 4 Complete!")
+# Add this after Stage 4
+
+def view_transactions(limit: int = 10):
+    """Display recent transactions"""
+    print(f"\n📝 Recent Transactions (Last {limit}):")
+    print("-" * 60)
+    
+    recent_transactions = finance_data["transactions"][-limit:]
+    
+    for transaction in recent_transactions:
+        symbol = "➕" if transaction["type"] == "income" else "➖"
+        print(f"{symbol} {transaction['date']} | ${transaction['amount']:.2f} | {transaction['category']} | {transaction['description']}")
+    
+    if not recent_transactions:
+        print("No transactions found.")
+
+print("👀 Transaction viewer ready - Stage 5 Complete!")
