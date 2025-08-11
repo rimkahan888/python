@@ -47,3 +47,8 @@ python python1.py
 4. Commit your changes: `git commit -m 'Add some feature'`
 5. Push to the branch: `git push origin feature-name`
 6. Submit a pull request
+
+## Requirements
+- Python 3.6 or higher
+- Git for version control
+- Text editor or IDE
