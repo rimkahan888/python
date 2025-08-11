@@ -30,3 +30,12 @@ python python1.py
 - ✅ Organized project structure
 - ✅ Git practice repository
 - ✅ Learning-focused examples
+
+## Examples
+### Running python1.py
+```python
+# Example output when running python1.py
+python python1.py
+```
+
+### Project Structure
