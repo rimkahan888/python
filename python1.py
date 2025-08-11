@@ -70,4 +70,26 @@ def view_transactions(limit: int = 10):
     if not recent_transactions:
         print("No transactions found.")
 
+# Add this after Stage 5
+
+def analyze_by_category():
+    """Analyze spending by category"""
+    print("\n📊 Spending Analysis by Category:")
+    print("-" * 40)
+    
+    category_totals = {}
+    
+    for transaction in finance_data["transactions"]:
+        if transaction["type"] == "expense":
+            category = transaction["category"]
+            category_totals[category] = category_totals.get(category, 0) + transaction["amount"]
+    
+    for category, total in sorted(category_totals.items(), key=lambda x: x[1], reverse=True):
+        print(f"🏷️  {category}: ${total:.2f}")
+    
+    if not category_totals:
+        print("No expense data available.")
+
+print("📈 Category analysis ready - Stage 6 Complete!")
+
 print("👀 Transaction viewer ready - Stage 5 Complete!")
