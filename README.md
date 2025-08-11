@@ -52,3 +52,9 @@ python python1.py
 - Python 3.6 or higher
 - Git for version control
 - Text editor or IDE
+
+## License
+This project is licensed under the terms in the LICENSE file.
+
+## Author
+Created for Python and Git learning purposes.
