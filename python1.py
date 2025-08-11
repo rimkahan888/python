@@ -115,6 +115,34 @@ def load_data(filename: str = "finance_data.json"):
     except Exception as e:
         print(f"❌ Error loading data: {e}")
 
+# Add this after Stage 8
+
+def display_menu():
+    """Display the main menu"""
+    print("\n" + "="*50)
+    print("💰 PERSONAL FINANCE TRACKER")
+    print("="*50)
+    print("1. Add Income")
+    print("2. Add Expense")
+    print("3. View Balance")
+    print("4. View Transactions")
+    print("5. Category Analysis")
+    print("6. Save Data")
+    print("7. Load Data")
+    print("8. Exit")
+    print("-"*50)
+
+def get_user_choice():
+    """Get user menu choice"""
+    try:
+        choice = int(input("Enter your choice (1-8): "))
+        return choice
+    except ValueError:
+        print("❌ Please enter a valid number.")
+        return None
+
+print("🎯 Menu system ready - Stage 9 Complete!")
+
 print("📂 Load function ready - Stage 8 Complete!")
 
 print("👀 Transaction viewer ready - Stage 5 Complete!")
