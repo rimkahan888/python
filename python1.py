@@ -90,6 +90,17 @@ def analyze_by_category():
     if not category_totals:
         print("No expense data available.")
 
-print("📈 Category analysis ready - Stage 6 Complete!")
+# Add this after Stage 6
+
+def save_data(filename: str = "finance_data.json"):
+    """Save financial data to JSON file"""
+    try:
+        with open(filename, 'w') as file:
+            json.dump(finance_data, file, indent=2)
+        print(f"💾 Data saved to {filename}")
+    except Exception as e:
+        print(f"❌ Error saving data: {e}")
+
+print("💾 Save function ready - Stage 7 Complete!")
 
 print("👀 Transaction viewer ready - Stage 5 Complete!")
