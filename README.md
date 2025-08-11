@@ -24,3 +24,9 @@ python python1.py
 cd python
 python python1.py
 ```
+
+## Features
+- ✅ Basic Python scripts
+- ✅ Organized project structure
+- ✅ Git practice repository
+- ✅ Learning-focused examples
