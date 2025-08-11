@@ -41,4 +41,17 @@ def add_transaction(amount: float, category: str, description: str, transaction_
     
     print(f"✅ Transaction added: {transaction_type} of ${amount}")
 
-print("💸 Transaction function ready - Stage 3 Complete!")
+# Add this after Stage 3
+
+def display_balance():
+    """Display current balance and summary"""
+    print(f"\n💰 Current Balance: ${finance_data['balance']:.2f}")
+    
+    total_income = sum(t['amount'] for t in finance_data['transactions'] if t['type'] == 'income')
+    total_expenses = sum(t['amount'] for t in finance_data['transactions'] if t['type'] == 'expense')
+    
+    print(f"📈 Total Income: ${total_income:.2f}")
+    print(f"📉 Total Expenses: ${total_expenses:.2f}")
+    print(f"📊 Net Savings: ${total_income - total_expenses:.2f}")
+
+print("📋 Balance display function ready - Stage 4 Complete!")
