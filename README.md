@@ -14,3 +14,13 @@ A Python learning repository for practicing programming concepts and git workflo
 git clone <your-repo-url>
 cd "4 python"
 ```
+
+## Usage
+```bash
+# Run the main Python script
+python python1.py
+
+# Or run from the python subdirectory
+cd python
+python python1.py
+```
