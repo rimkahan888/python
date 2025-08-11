@@ -101,6 +101,20 @@ def save_data(filename: str = "finance_data.json"):
     except Exception as e:
         print(f"❌ Error saving data: {e}")
 
-print("💾 Save function ready - Stage 7 Complete!")
+# Add this after Stage 7
+
+def load_data(filename: str = "finance_data.json"):
+    """Load financial data from JSON file"""
+    global finance_data
+    try:
+        with open(filename, 'r') as file:
+            finance_data = json.load(file)
+        print(f"📂 Data loaded from {filename}")
+    except FileNotFoundError:
+        print(f"📁 No existing data file found. Starting fresh.")
+    except Exception as e:
+        print(f"❌ Error loading data: {e}")
+
+print("📂 Load function ready - Stage 8 Complete!")
 
 print("👀 Transaction viewer ready - Stage 5 Complete!")
