@@ -207,3 +207,92 @@ View comprehensive analytics including:
 - Helpful prompts and input guidance
 - "Press Enter to continue" pauses for readability
 - Consistent menu navigation
+
+## 9. Technical Details
+
+### Architecture
+
+- **Object-Oriented Design**: Task class with methods for serialization
+- **Modular Functions**: Separate functions for each operation
+- **Global State Management**: Task list and ID counter management
+- **Error Boundaries**: Try-catch blocks around critical operations
+
+### Dependencies
+
+- `json`: Data serialization and storage
+- `os`: File system operations
+- `datetime`: Timestamp management
+- `sys`: System operations and exit handling
+
+### Code Structure
+
+- **Constants**: Application name, version, file paths
+- **Task Class**: Core data model with serialization methods
+- **CRUD Operations**: Create, Read, Update, Delete functions
+- **UI Functions**: Menu display and user input handling
+- **Data Persistence**: Save/load and backup functions
+- **Main Loop**: Application initialization and menu handling
+
+### Performance Considerations
+
+- In-memory task storage for fast operations
+- Efficient list comprehensions for filtering
+- Minimal file I/O operations
+- Lazy loading of task data
+
+## 10. Troubleshooting & Support
+
+### Common Issues
+
+**Problem**: "Permission denied" when saving tasks
+
+- **Solution**: Ensure write permissions in the application directory
+- **Alternative**: Run from a directory where you have write access
+
+**Problem**: Tasks not loading on startup
+
+- **Solution**: Check if `tasks.json` exists and is valid JSON
+- **Recovery**: Delete corrupted file to start fresh, or restore from backup
+
+**Problem**: Application crashes on startup
+
+- **Solution**: Verify Python 3.6+ is installed
+- **Check**: Ensure all required files are present
+
+### Data Recovery
+
+1. **From Backup**: Rename a backup file to `tasks.json`
+2. **Manual Recovery**: Edit `tasks.json` to fix JSON syntax errors
+3. **Fresh Start**: Delete `tasks.json` to start with empty task list
+
+### Best Practices
+
+- **Regular Backups**: Use option 14 to create backups periodically
+- **Descriptive Titles**: Use clear, actionable task titles
+- **Priority Management**: Regularly review and adjust task priorities
+- **Status Updates**: Keep task statuses current for accurate statistics
+
+### Getting Help
+
+- Check error messages for specific guidance
+- Verify file permissions and disk space
+- Ensure Python version compatibility
+- Review this README for feature explanations
+
+### Future Enhancements
+
+Potential improvements for future versions:
+
+- Due date support with reminders
+- Task categories and tags
+- Export to different formats (CSV, PDF)
+- Multi-user support
+- Web interface option
+- Integration with calendar applications
+
+---
+
+**Version**: 1.0.0  
+**Author**: Your Name  
+**License**: See LICENSE file  
+**Last Updated**: 2024
