@@ -184,3 +184,26 @@ View comprehensive analytics including:
 - Clear all completed tasks at once
 - Confirmation prompts for destructive operations
 - Batch status updates possible through menu navigation
+
+## 8. Error Handling & Safety
+
+### Input Validation
+
+- Required field validation (task titles cannot be empty)
+- Type checking for numeric inputs (task IDs)
+- Priority and status validation against allowed values
+- Graceful handling of invalid menu choices
+
+### Data Safety
+
+- Confirmation prompts for destructive operations (delete, clear)
+- Automatic backup suggestions before exit
+- Error recovery for corrupted data files
+- Keyboard interrupt handling (Ctrl+C)
+
+### User Experience
+
+- Clear success/error messages with ✓/✗ indicators
+- Helpful prompts and input guidance
+- "Press Enter to continue" pauses for readability
+- Consistent menu navigation
