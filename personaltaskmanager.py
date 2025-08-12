@@ -322,3 +322,74 @@ def backup_tasks():
     
     except Exception as e:
         return False, f"Error creating backup: {str(e)}"
+
+# ... existing code ...
+
+def display_menu():
+    """Display the main menu options"""
+    print(f"\n=== {APP_NAME} v{VERSION} ===")
+    print("1.  Add new task")
+    print("2.  List all tasks")
+    print("3.  List tasks by status")
+    print("4.  List tasks by priority")
+    print("5.  View task details")
+    print("6.  Update task status")
+    print("7.  Edit task")
+    print("8.  Complete task")
+    print("9.  Delete task")
+    print("10. Search tasks")
+    print("11. View statistics")
+    print("12. Clear completed tasks")
+    print("13. Save tasks")
+    print("14. Create backup")
+    print("0.  Exit")
+    print("-" * 30)
+
+def get_user_input(prompt, input_type=str, required=True):
+    """Get user input with type validation"""
+    while True:
+        try:
+            user_input = input(prompt).strip()
+            
+            if not user_input and required:
+                print("This field is required. Please enter a value.")
+                continue
+            
+            if not user_input and not required:
+                return None
+            
+            if input_type == int:
+                return int(user_input)
+            elif input_type == str:
+                return user_input
+            
+        except ValueError:
+            print(f"Please enter a valid {input_type.__name__}.")
+        except KeyboardInterrupt:
+            print("\nOperation cancelled.")
+            return None
+
+def get_priority_input():
+    """Get priority input with validation"""
+    print("Priority options: low, medium, high")
+    while True:
+        priority = input("Enter priority (default: medium): ").strip().lower()
+        if not priority:
+            return "medium"
+        if priority in ["low", "medium", "high"]:
+            return priority
+        print("Invalid priority. Please enter: low, medium, or high")
+
+def get_status_input():
+    """Get status input with validation"""
+    print(f"Status options: {STATUS_PENDING}, {STATUS_IN_PROGRESS}, {STATUS_COMPLETED}")
+    while True:
+        status = input("Enter status: ").strip().lower()
+        if status in [STATUS_PENDING, STATUS_IN_PROGRESS, STATUS_COMPLETED]:
+            return status
+        print(f"Invalid status. Please enter: {STATUS_PENDING}, {STATUS_IN_PROGRESS}, or {STATUS_COMPLETED}")
+
+def confirm_action(message):
+    """Get user confirmation for destructive actions"""
+    response = input(f"{message} (y/N): ").strip().lower()
+    return response in ['y', 'yes']
