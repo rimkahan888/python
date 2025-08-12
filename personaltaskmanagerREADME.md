@@ -7,6 +7,7 @@ A simple yet powerful command-line application for managing personal tasks with 
 The Personal Task Manager is a Python-based command-line application designed to help users organize and track their personal tasks efficiently. Built with simplicity and functionality in mind, it provides a clean interface for task management without the complexity of web-based solutions.
 
 **Key Highlights:**
+
 - Version: 1.0.0
 - Pure Python implementation
 - JSON-based data persistence
@@ -16,6 +17,7 @@ The Personal Task Manager is a Python-based command-line application designed to
 ## 2. Features
 
 ### Core Task Management
+
 - ✅ **Add Tasks**: Create new tasks with title, description, and priority
 - 📋 **List Tasks**: View all tasks or filter by status/priority
 - 🔍 **Search Tasks**: Find tasks by title or description
@@ -24,6 +26,7 @@ The Personal Task Manager is a Python-based command-line application designed to
 - ✅ **Complete Tasks**: Mark tasks as completed with timestamp
 
 ### Advanced Features
+
 - 📊 **Statistics**: View task completion rates and priority distribution
 - 🔄 **Status Management**: Track tasks through pending, in-progress, and completed states
 - 🎯 **Priority Levels**: Organize tasks by low, medium, and high priority
@@ -31,3 +34,29 @@ The Personal Task Manager is a Python-based command-line application designed to
 - 🔒 **Backup System**: Create timestamped backups of your task data
 - 🧹 **Cleanup Tools**: Clear completed tasks in bulk
 
+## 3. Installation
+
+### Prerequisites
+
+- Python 3.6 or higher
+- No additional dependencies required (uses only standard library)
+
+### Setup Steps
+
+1. **Clone or Download**: Get the project files to your local machine
+
+   ```bash
+   git clone <repository-url>
+   cd personal-task-manager
+   ```
+
+2. **Verify Python Installation**:
+
+   ```bash
+   python3 --version
+   ```
+
+3. **Make Script Executable** (Optional on Unix-like systems):
+   ```bash
+   chmod +x personaltaskmanager.py
+   ```
