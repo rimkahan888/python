@@ -260,3 +260,65 @@ def clear_completed_tasks():
     completed_count = len([t for t in tasks if t.status == STATUS_COMPLETED])
     tasks = [t for t in tasks if t.status != STATUS_COMPLETED]
     return completed_count
+
+# ... existing code ...
+
+def save_tasks():
+    """Save tasks to JSON file"""
+    try:
+        data = {
+            "tasks": [task.to_dict() for task in tasks],
+            "next_task_id": next_task_id,
+            "last_saved": datetime.now().isoformat()
+        }
+        
+        with open(DATA_FILE, 'w') as f:
+            json.dump(data, f, indent=2)
+        
+        return True, f"Tasks saved successfully to {DATA_FILE}"
+    
+    except Exception as e:
+        return False, f"Error saving tasks: {str(e)}"
+
+def load_tasks():
+    """Load tasks from JSON file"""
+    global tasks, next_task_id
+    
+    if not os.path.exists(DATA_FILE):
+        return True, "No existing data file found. Starting fresh."
+    
+    try:
+        with open(DATA_FILE, 'r') as f:
+            data = json.load(f)
+        
+        tasks = [Task.from_dict(task_data) for task_data in data.get("tasks", [])]
+        next_task_id = data.get("next_task_id", 1)
+        
+        # Update next_task_id to be higher than any existing task ID
+        if tasks:
+            max_id = max(task.id for task in tasks)
+            next_task_id = max(next_task_id, max_id + 1)
+        
+        return True, f"Loaded {len(tasks)} tasks from {DATA_FILE}"
+    
+    except Exception as e:
+        return False, f"Error loading tasks: {str(e)}"
+
+def backup_tasks():
+    """Create a backup of the current tasks"""
+    try:
+        backup_filename = f"tasks_backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        
+        data = {
+            "tasks": [task.to_dict() for task in tasks],
+            "next_task_id": next_task_id,
+            "backup_created": datetime.now().isoformat()
+        }
+        
+        with open(backup_filename, 'w') as f:
+            json.dump(data, f, indent=2)
+        
+        return True, f"Backup created: {backup_filename}"
+    
+    except Exception as e:
+        return False, f"Error creating backup: {str(e)}"
