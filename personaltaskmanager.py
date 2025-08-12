@@ -136,5 +136,68 @@ def display_task_details(task_id):
     print(f"Status: {task.status}")
     print(f"Created: {datetime.fromisoformat(task.created_date).strftime('%Y-%m-%d %H:%M:%S')}")
     if task.completed_date:
-        print(f"Completed: {datetime.fromisoformat(task.completed_date).strftime('%Y-%m-%d %H:%M:%S')}")
-    print()
+        print(f"Completed: {datetime.fromisoformat(task.completed_date).strftime('%Y-%m-%d %H:%M:%S'
+        
+    # ... existing code ...
+
+def update_task_status(task_id, new_status):
+    """Update the status of a task"""
+    valid_statuses = [STATUS_PENDING, STATUS_IN_PROGRESS, STATUS_COMPLETED]
+    
+    if new_status not in valid_statuses:
+        return False, f"Invalid status. Valid options: {', '.join(valid_statuses)}"
+    
+    task = get_task_by_id(task_id)
+    if not task:
+        return False, f"Task with ID {task_id} not found"
+    
+    old_status = task.status
+    task.status = new_status
+    
+    if new_status == STATUS_COMPLETED and old_status != STATUS_COMPLETED:
+        task.completed_date = datetime.now().isoformat()
+    elif new_status != STATUS_COMPLETED:
+        task.completed_date = None
+    
+    return True, f"Task {task_id} status updated from '{old_status}' to '{new_status}'"
+
+def complete_task(task_id):
+    """Mark a task as completed"""
+    return update_task_status(task_id, STATUS_COMPLETED)
+
+def delete_task(task_id):
+    """Delete a task from the list"""
+    global tasks
+    task = get_task_by_id(task_id)
+    
+    if not task:
+        return False, f"Task with ID {task_id} not found"
+    
+    tasks = [t for t in tasks if t.id != task_id]
+    return True, f"Task '{task.title}' (ID: {task_id}) deleted successfully"
+
+def edit_task(task_id, new_title=None, new_description=None, new_priority=None):
+    """Edit task properties"""
+    task = get_task_by_id(task_id)
+    
+    if not task:
+        return False, f"Task with ID {task_id} not found"
+    
+    changes = []
+    
+    if new_title and new_title.strip():
+        task.title = new_title.strip()
+        changes.append("title")
+    
+    if new_description is not None:
+        task.description = new_description.strip()
+        changes.append("description")
+    
+    if new_priority and new_priority in ["low", "medium", "high"]:
+        task.priority = new_priority
+        changes.append("priority")
+    
+    if changes:
+        return True, f"Task {task_id} updated: {', '.join(changes)}"
+    else:
+        return False, "No valid changes provided"
