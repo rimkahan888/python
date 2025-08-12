@@ -62,3 +62,27 @@ class Task:
         task.created_date = data['created_date']
         task.completed_date = data['completed_date']
         return task
+
+    # ... existing code ...
+
+def add_task(title, description="", priority="medium"):
+    """Add a new task to the task list"""
+    global next_task_id
+    
+    if not title.strip():
+        return False, "Task title cannot be empty"
+    
+    if priority not in ["low", "medium", "high"]:
+        priority = "medium"
+    
+    new_task = Task(title.strip(), description.strip(), priority)
+    tasks.append(new_task)
+    
+    return True, f"Task '{title}' added successfully with ID {new_task.id}"
+
+def get_task_by_id(task_id):
+    """Find and return a task by its ID"""
+    for task in tasks:
+        if task.id == task_id:
+            return task
+    return None
