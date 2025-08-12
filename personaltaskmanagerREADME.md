@@ -113,3 +113,44 @@ Each task contains the following information:
 - **Completed Date**: Timestamp when task was completed (if applicable)
 
 ### Status Workflow
+
+### Priority System
+
+- **High**: Urgent or important tasks
+- **Medium**: Regular tasks (default)
+- **Low**: Nice-to-have or low-priority items
+
+## 6. Data Storage
+
+### File Structure
+
+- **Primary Data**: `tasks.json` - Main task storage file
+- **Backups**: `tasks_backup_YYYYMMDD_HHMMSS.json` - Timestamped backups
+
+### Data Format
+
+Tasks are stored in JSON format with the following structure:
+
+```json
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Sample Task",
+      "description": "Task description",
+      "priority": "medium",
+      "status": "pending",
+      "created_date": "2024-01-01T10:00:00",
+      "completed_date": null
+    }
+  ],
+  "next_task_id": 2,
+  "last_saved": "2024-01-01T10:00:00"
+}
+```
+
+### Automatic Features
+
+- **Auto-save**: Tasks are automatically loaded on startup
+- **Data Validation**: Input validation prevents data corruption
+- **Error Handling**: Graceful handling of file I/O errors
