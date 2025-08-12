@@ -86,3 +86,55 @@ def get_task_by_id(task_id):
         if task.id == task_id:
             return task
     return None
+
+# ... existing code ...
+
+def list_tasks(status_filter=None, priority_filter=None):
+    """List all tasks with optional filtering"""
+    filtered_tasks = tasks
+    
+    if status_filter:
+        filtered_tasks = [t for t in filtered_tasks if t.status == status_filter]
+    
+    if priority_filter:
+        filtered_tasks = [t for t in filtered_tasks if t.priority == priority_filter]
+    
+    return filtered_tasks
+
+def display_tasks(task_list=None):
+    """Display tasks in a formatted table"""
+    if task_list is None:
+        task_list = tasks
+    
+    if not task_list:
+        print("No tasks found.")
+        return
+    
+    print(f"\n{'ID':<4} {'Title':<25} {'Priority':<10} {'Status':<12} {'Created':<12}")
+    print("-" * 70)
+    
+    for task in task_list:
+        created_date = datetime.fromisoformat(task.created_date).strftime("%Y-%m-%d")
+        print(f"{task.id:<4} {task.title[:24]:<25} {task.priority:<10} {task.status:<12} {created_date:<12}")
+        
+        if task.description:
+            print(f"     Description: {task.description[:50]}{'...' if len(task.description) > 50 else ''}")
+    print()
+
+def display_task_details(task_id):
+    """Display detailed information about a specific task"""
+    task = get_task_by_id(task_id)
+    if not task:
+        print(f"Task with ID {task_id} not found.")
+        return
+    
+    print(f"\n--- Task Details ---")
+    print(f"ID: {task.id}")
+    print(f"Title: {task.title}")
+    print(f"Description: {task.description or 'No description'}")
+    print(f"Priority: {task.priority}")
+    print(f"Status: {task.status}")
+    print(f"Created: {datetime.fromisoformat(task.created_date).strftime('%Y-%m-%d %H:%M:%S')}")
+    if task.completed_date:
+        print(f"Completed: {datetime.fromisoformat(task.completed_date).strftime('%Y-%m-%d %H:%M:%S')}")
+    print()
