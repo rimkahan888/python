@@ -201,3 +201,62 @@ def edit_task(task_id, new_title=None, new_description=None, new_priority=None):
         return True, f"Task {task_id} updated: {', '.join(changes)}"
     else:
         return False, "No valid changes provided"
+
+# ... existing code ...
+
+def get_task_statistics():
+    """Get statistics about tasks"""
+    total_tasks = len(tasks)
+    completed_tasks = len([t for t in tasks if t.status == STATUS_COMPLETED])
+    pending_tasks = len([t for t in tasks if t.status == STATUS_PENDING])
+    in_progress_tasks = len([t for t in tasks if t.status == STATUS_IN_PROGRESS])
+    
+    priority_counts = {
+        "high": len([t for t in tasks if t.priority == "high"]),
+        "medium": len([t for t in tasks if t.priority == "medium"]),
+        "low": len([t for t in tasks if t.priority == "low"])
+    }
+    
+    return {
+        "total": total_tasks,
+        "completed": completed_tasks,
+        "pending": pending_tasks,
+        "in_progress": in_progress_tasks,
+        "priority_counts": priority_counts,
+        "completion_rate": (completed_tasks / total_tasks * 100) if total_tasks > 0 else 0
+    }
+
+def display_statistics():
+    """Display task statistics in a formatted way"""
+    stats = get_task_statistics()
+    
+    print("\n--- Task Statistics ---")
+    print(f"Total Tasks: {stats['total']}")
+    print(f"Completed: {stats['completed']}")
+    print(f"In Progress: {stats['in_progress']}")
+    print(f"Pending: {stats['pending']}")
+    print(f"Completion Rate: {stats['completion_rate']:.1f}%")
+    print("\nPriority Distribution:")
+    print(f"  High: {stats['priority_counts']['high']}")
+    print(f"  Medium: {stats['priority_counts']['medium']}")
+    print(f"  Low: {stats['priority_counts']['low']}")
+    print()
+
+def search_tasks(search_term):
+    """Search tasks by title or description"""
+    search_term = search_term.lower()
+    matching_tasks = []
+    
+    for task in tasks:
+        if (search_term in task.title.lower() or 
+            search_term in task.description.lower()):
+            matching_tasks.append(task)
+    
+    return matching_tasks
+
+def clear_completed_tasks():
+    """Remove all completed tasks"""
+    global tasks
+    completed_count = len([t for t in tasks if t.status == STATUS_COMPLETED])
+    tasks = [t for t in tasks if t.status != STATUS_COMPLETED]
+    return completed_count
