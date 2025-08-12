@@ -393,3 +393,117 @@ def confirm_action(message):
     """Get user confirmation for destructive actions"""
     response = input(f"{message} (y/N): ").strip().lower()
     return response in ['y', 'yes']
+
+# ... existing code ...
+
+def handle_menu_choice(choice):
+    """Handle user menu selection with error handling"""
+    try:
+        if choice == 1:  # Add new task
+            title = get_user_input("Enter task title: ")
+            if title:
+                description = get_user_input("Enter task description (optional): ", required=False) or ""
+                priority = get_priority_input()
+                success, message = add_task(title, description, priority)
+                print(f"\n{'✓' if success else '✗'} {message}")
+        
+        elif choice == 2:  # List all tasks
+            display_tasks()
+        
+        elif choice == 3:  # List by status
+            status = get_status_input()
+            filtered_tasks = list_tasks(status_filter=status)
+            print(f"\nTasks with status '{status}':")
+            display_tasks(filtered_tasks)
+        
+        elif choice == 4:  # List by priority
+            priority = get_priority_input()
+            filtered_tasks = list_tasks(priority_filter=priority)
+            print(f"\nTasks with priority '{priority}':")
+            display_tasks(filtered_tasks)
+        
+        elif choice == 5:  # View task details
+            task_id = get_user_input("Enter task ID: ", int)
+            if task_id:
+                display_task_details(task_id)
+        
+        elif choice == 6:  # Update task status
+            task_id = get_user_input("Enter task ID: ", int)
+            if task_id:
+                new_status = get_status_input()
+                success, message = update_task_status(task_id, new_status)
+                print(f"\n{'✓' if success else '✗'} {message}")
+        
+        elif choice == 7:  # Edit task
+            task_id = get_user_input("Enter task ID: ", int)
+            if task_id:
+                task = get_task_by_id(task_id)
+                if task:
+                    print(f"\nCurrent task: {task.title}")
+                    new_title = get_user_input("Enter new title (press Enter to keep current): ", required=False)
+                    new_description = get_user_input("Enter new description (press Enter to keep current): ", required=False)
+                    print("Enter new priority (press Enter to keep current):")
+                    new_priority = get_user_input("Priority: ", required=False)
+                    
+                    success, message = edit_task(task_id, new_title, new_description, new_priority)
+                    print(f"\n{'✓' if success else '✗'} {message}")
+                else:
+                    print(f"\n✗ Task with ID {task_id} not found")
+        
+        elif choice == 8:  # Complete task
+            task_id = get_user_input("Enter task ID to complete: ", int)
+            if task_id:
+                success, message = complete_task(task_id)
+                print(f"\n{'✓' if success else '✗'} {message}")
+        
+        elif choice == 9:  # Delete task
+            task_id = get_user_input("Enter task ID to delete: ", int)
+            if task_id:
+                task = get_task_by_id(task_id)
+                if task and confirm_action(f"Delete task '{task.title}'?"):
+                    success, message = delete_task(task_id)
+                    print(f"\n{'✓' if success else '✗'} {message}")
+                elif task:
+                    print("\n✗ Deletion cancelled")
+        
+        elif choice == 10:  # Search tasks
+            search_term = get_user_input("Enter search term: ")
+            if search_term:
+                results = search_tasks(search_term)
+                print(f"\nSearch results for '{search_term}':")
+                display_tasks(results)
+        
+        elif choice == 11:  # View statistics
+            display_statistics()
+        
+        elif choice == 12:  # Clear completed tasks
+            if confirm_action("Clear all completed tasks?"):
+                count = clear_completed_tasks()
+                print(f"\n✓ Cleared {count} completed tasks")
+            else:
+                print("\n✗ Operation cancelled")
+        
+        elif choice == 13:  # Save tasks
+            success, message = save_tasks()
+            print(f"\n{'✓' if success else '✗'} {message}")
+        
+        elif choice == 14:  # Create backup
+            success, message = backup_tasks()
+            print(f"\n{'✓' if success else '✗'} {message}")
+        
+        elif choice == 0:  # Exit
+            if confirm_action("Save tasks before exiting?"):
+                save_tasks()
+            print("\nGoodbye! 👋")
+            return False
+        
+        else:
+            print("\n✗ Invalid choice. Please select a number from the menu.")
+    
+    except KeyboardInterrupt:
+        print("\n\nOperation interrupted. Returning to menu...")
+    except Exception as e:
+        print(f"\n✗ An unexpected error occurred: {str(e)}")
+        print("Please try again or contact support if the problem persists.")
+    
+    return True
