@@ -154,3 +154,33 @@ Tasks are stored in JSON format with the following structure:
 - **Auto-save**: Tasks are automatically loaded on startup
 - **Data Validation**: Input validation prevents data corruption
 - **Error Handling**: Graceful handling of file I/O errors
+
+## 7. Advanced Features
+
+### Search Functionality
+
+- Search through task titles and descriptions
+- Case-insensitive matching
+- Partial word matching supported
+- Results displayed in standard task table format
+
+### Statistics Dashboard
+
+View comprehensive analytics including:
+
+- Total task count
+- Completion rate percentage
+- Status distribution (pending/in-progress/completed)
+- Priority distribution (high/medium/low)
+
+### Backup System
+
+- Manual backup creation with timestamps
+- Backup files include all task data and metadata
+- Useful for data recovery and archiving
+
+### Bulk Operations
+
+- Clear all completed tasks at once
+- Confirmation prompts for destructive operations
+- Batch status updates possible through menu navigation
