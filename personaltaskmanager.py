@@ -507,3 +507,66 @@ def handle_menu_choice(choice):
         print("Please try again or contact support if the problem persists.")
     
     return True
+
+# ... existing code ...
+
+def initialize_application():
+    """Initialize the application and load existing data"""
+    print(f"Initializing {APP_NAME}...")
+    
+    # Load existing tasks
+    success, message = load_tasks()
+    print(message)
+    
+    if not success:
+        print("Warning: Could not load existing tasks. Starting with empty task list.")
+    
+    return True
+
+def main():
+    """Main program loop"""
+    try:
+        # Initialize application
+        if not initialize_application():
+            print("Failed to initialize application. Exiting.")
+            sys.exit(1)
+        
+        print(f"\nWelcome to {APP_NAME}!")
+        
+        # Main program loop
+        while True:
+            try:
+                display_menu()
+                choice = get_user_input("Enter your choice (0-14): ", int)
+                
+                if choice is None:  # User cancelled input
+                    continue
+                
+                # Handle the menu choice
+                continue_running = handle_menu_choice(choice)
+                
+                if not continue_running:
+                    break
+                
+                # Pause before showing menu again
+                input("\nPress Enter to continue...")
+                
+            except KeyboardInterrupt:
+                print("\n\nExiting application...")
+                if confirm_action("Save tasks before exiting?"):
+                    save_tasks()
+                break
+            except EOFError:
+                print("\n\nEnd of input detected. Exiting...")
+                break
+    
+    except Exception as e:
+        print(f"\nCritical error: {str(e)}")
+        print("The application will now exit.")
+        sys.exit(1)
+    
+    finally:
+        print("\nThank you for using Personal Task Manager!")
+
+if __name__ == "__main__":
+    main()
