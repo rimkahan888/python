@@ -20,9 +20,24 @@ This project provides a command-line quote generator that displays random inspir
    chmod +x quote_generator.py
    ```
 
-## Running the Program
+## Features
 
-Execute the script from the command line:
+- Display random inspirational quotes with attribution
+- Clean, formatted output with decorative borders
+- Simple user interface for viewing multiple quotes
+- Error handling for robust operation
+- Data validation to ensure quote integrity
+
+## Usage
+
+When you run the program, it will:
+
+1. Display a welcome message
+2. Show a random quote in a formatted box
+3. Present options to view another quote or exit
+4. Continue showing quotes until you choose to exit
+
+Example interaction:
 
 ```bash
 python quote_generator.py
