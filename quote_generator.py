@@ -207,5 +207,37 @@ def safe_get_user_input():
             print(f"Error: {e}")
             # Continue the loop to ask again
 
+# Validation implementation
+
+def validate_quote_format(quote):
+    """Validate that a quote has the correct format
+    
+    Args:
+        quote (dict): Quote to validate
+        
+    Returns:
+        bool: True if valid, False otherwise
+    """
+    try:
+        # Check if quote is a dictionary
+        if not isinstance(quote, dict):
+            print("Error: Quote must be a dictionary")
+            return False
+            
+        # Check if required keys exist
+        if 'text' not in quote or 'author' not in quote:
+            print("Error: Quote must have 'text' and 'author' keys")
+            return False
+            
+        # Check if values are strings
+        if not isinstance(quote['text'], str) or not isinstance(quote['author'], str):
+            print("Error: Quote text and author must be strings")
+            return False
+            
+        return True
+    except Exception as e:
+        print(f"Validation error: {e}")
+        return False
+
 if __name__ == "__main__":
     main()
