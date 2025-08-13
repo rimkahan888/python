@@ -23,5 +23,17 @@ def main():
     print("Welcome to the Random Quote Generator!")
     # More code will be added in future stages
 
+def display_quote(quote):
+    """Display a formatted quote with its author
+    
+    Args:
+        quote (dict): A dictionary containing 'text' and 'author' keys
+    """
+    print("\n╔═════════════════════════════════════════════╗")
+    print(f"║ \"{quote['text']}\" ║")
+    print(f"║ - {quote['author']} ║")
+    print("╚═════════════════════════════════════════════╝\n")
+    time.sleep(SETTINGS["delay"])  # Pause between quotes
+
 if __name__ == "__main__":
     main()
