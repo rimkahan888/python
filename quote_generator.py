@@ -26,14 +26,34 @@ def get_random_quote():
     """
     return random.choice(QUOTES)
 
-# Update main function to use the new functions
+def get_user_input():
+    """Get user input for quote generator options
+    
+    Returns:
+        str: User's choice of action
+    """
+    print("\nOptions:")
+    print("1. Show another quote")
+    print("2. Exit")
+    
+    choice = input("Enter your choice (1-2): ")
+    return choice
+
+# Update main function to include user interaction
 def main():
     """Main function to run the quote generator"""
     print("Welcome to the Random Quote Generator!")
     
-    # Display a random quote
-    quote = get_random_quote()
-    display_quote(quote)
+    running = True
+    while running:
+        # Display a random quote
+        quote = get_random_quote()
+        display_quote(quote)
+        
+        # Get user input
+        choice = get_user_input()
+        if choice == "2":
+            running = False
 
 def display_quote(quote):
     """Display a formatted quote with its author
