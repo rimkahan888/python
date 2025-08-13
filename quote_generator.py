@@ -170,5 +170,42 @@ The current implementation follows a simple event loop pattern:
 4. Repeat or exit
 """
 
+# Error handling implementation
+
+def safe_get_random_quote():
+    """Safely get a random quote with error handling
+    
+    Returns:
+        dict: A randomly selected quote dictionary or a default quote on error
+    """
+    try:
+        if not QUOTES:  # Check if quotes list is empty
+            raise ValueError("Quotes database is empty")
+        return random.choice(QUOTES)
+    except Exception as e:
+        print(f"Error selecting quote: {e}")
+        # Return a default quote if there's an error
+        return {"text": "Error occurred, but life goes on.", "author": "Anonymous"}
+
+def safe_get_user_input():
+    """Safely get user input with error handling
+    
+    Returns:
+        str: Validated user choice
+    """
+    while True:
+        try:
+            print("\nOptions:")
+            print("1. Show another quote")
+            print("2. Exit")
+            
+            choice = input("Enter your choice (1-2): ")
+            if choice not in ["1", "2"]:
+                raise ValueError("Invalid choice. Please enter 1 or 2.")
+            return choice
+        except Exception as e:
+            print(f"Error: {e}")
+            # Continue the loop to ask again
+
 if __name__ == "__main__":
     main()
