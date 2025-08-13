@@ -145,5 +145,30 @@ def main():
         if choice == "2":
             running = False
 
+# User Interaction Explanation
+"""
+User Interaction System:
+
+The get_user_input function provides a simple menu interface for users
+to interact with the quote generator. It displays numbered options and
+accepts user input to determine the next action.
+
+The main function uses this input in a loop to either continue showing
+quotes or exit the program based on user choice.
+
+Possible enhancements:
+1. Adding more options (save quote, share quote, etc.)
+2. Input validation to handle invalid entries
+3. Command-line arguments for batch operation
+4. A more sophisticated menu system with submenus
+5. GUI interface as an alternative to command-line
+
+The current implementation follows a simple event loop pattern:
+1. Display information (quote)
+2. Get user input
+3. Process input and determine next action
+4. Repeat or exit
+"""
+
 if __name__ == "__main__":
     main()
