@@ -55,6 +55,28 @@ def main():
         if choice == "2":
             running = False
 
+# Quote Formatting Explanation
+"""
+Quote Formatting Details:
+
+The display_quote function creates a visually appealing box around each quote
+using Unicode box-drawing characters. This enhances readability and gives the
+quotes a more professional appearance.
+
+Box characters used:
+- ╔, ╗, ╚, ╝: Corner characters
+- ═: Horizontal line
+- ║: Vertical line
+
+The function also adds proper spacing and attribution to the author.
+A time delay is implemented after displaying each quote to give the user
+time to read before showing the next option or quote.
+
+Future enhancements could include:
+- Dynamic box sizing based on quote length
+- Color coding using ANSI escape sequences
+- Different box styles for different quote categories
+"""
 def display_quote(quote):
     """Display a formatted quote with its author
     
