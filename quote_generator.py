@@ -18,10 +18,22 @@ SETTINGS = {
     "max_display": 5,  # Maximum quotes to display in one session
 }
 
+def get_random_quote():
+    """Select a random quote from the quotes database
+    
+    Returns:
+        dict: A randomly selected quote dictionary
+    """
+    return random.choice(QUOTES)
+
+# Update main function to use the new functions
 def main():
     """Main function to run the quote generator"""
     print("Welcome to the Random Quote Generator!")
-    # More code will be added in future stages
+    
+    # Display a random quote
+    quote = get_random_quote()
+    display_quote(quote)
 
 def display_quote(quote):
     """Display a formatted quote with its author
