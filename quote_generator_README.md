@@ -48,3 +48,30 @@ Or if you made it executable:
 ```bash
 ./quote_generator.py
 ```
+
+## Project Structure
+
+The script is organized into several functional components:
+
+1. **Core Data Structures**:
+
+   - Quote database (list of dictionaries with text and author)
+   - Configuration settings (delay time, max quotes)
+
+2. **Display Functions**:
+
+   - `display_quote()`: Formats and displays a quote in a decorative box
+   - Includes proper spacing and attribution
+
+3. **Quote Selection**:
+
+   - `get_random_quote()`: Selects a random quote from the database
+   - `safe_get_random_quote()`: Adds error handling to quote selection
+
+4. **User Interaction**:
+
+   - `get_user_input()`: Displays options and processes user choices
+   - `safe_get_user_input()`: Adds validation to user input processing
+
+5. **Validation**:
+   - `validate_quote_format()`: Ensures quotes have the correct structure
