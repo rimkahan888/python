@@ -75,3 +75,35 @@ The script is organized into several functional components:
 
 5. **Validation**:
    - `validate_quote_format()`: Ensures quotes have the correct structure
+
+## Customization
+
+You can easily customize the script by:
+
+1. **Adding More Quotes**:
+
+   - Edit the `QUOTES` list to add your own inspirational quotes
+   - Each quote should be a dictionary with 'text' and 'author' keys
+
+2. **Changing Display Settings**:
+   - Modify the `SETTINGS` dictionary to change the delay time or max quotes
+   - Adjust the box formatting in the `display_quote()` function
+
+## Future Enhancements
+
+Potential improvements for future versions:
+
+- Loading quotes from external files (JSON, CSV, etc.)
+- Categories for quotes (inspirational, funny, philosophical, etc.)
+- Color-coded output using ANSI escape sequences
+- Web API integration to fetch quotes online
+- User ability to add, save, and rate quotes
+- GUI interface as an alternative to command-line
+
+## License
+
+This project is open source and available under the MIT License.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
