@@ -89,5 +89,61 @@ def display_quote(quote):
     print("╚═════════════════════════════════════════════╝\n")
     time.sleep(SETTINGS["delay"])  # Pause between quotes
 
+# Quote Selection Explanation
+"""
+Quote Selection System:
+
+The get_random_quote function uses Python's random module to select quotes
+from the QUOTES database. The current implementation uses random.choice(),
+which gives each quote an equal probability of being selected.
+
+Potential improvements:
+1. Weighted selection based on quote popularity or relevance
+2. Tracking previously shown quotes to avoid repetition
+3. Categorization of quotes for themed selections
+4. Loading quotes from external sources (files, APIs)
+5. Allowing users to add their own quotes
+
+The function is designed to be modular, making it easy to replace with
+more sophisticated selection algorithms in the future without affecting
+other parts of the application.
+"""
+def get_random_quote():
+    """Select a random quote from the quotes database
+    
+    Returns:
+        dict: A randomly selected quote dictionary
+    """
+    return random.choice(QUOTES)
+
+def get_user_input():
+    """Get user input for quote generator options
+    
+    Returns:
+        str: User's choice of action
+    """
+    print("\nOptions:")
+    print("1. Show another quote")
+    print("2. Exit")
+    
+    choice = input("Enter your choice (1-2): ")
+    return choice
+
+# Update main function to include user interaction
+def main():
+    """Main function to run the quote generator"""
+    print("Welcome to the Random Quote Generator!")
+    
+    running = True
+    while running:
+        # Display a random quote
+        quote = get_random_quote()
+        display_quote(quote)
+        
+        # Get user input
+        choice = get_user_input()
+        if choice == "2":
+            running = False
+
 if __name__ == "__main__":
     main()
