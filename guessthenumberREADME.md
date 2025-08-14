@@ -10,6 +10,10 @@ It’s deliberately incomplete and meant for practicing Git workflows by committ
 - Includes dummy error handling and validation
 - Explanations for each core function
 
+## Installation
+
+1. Ensure you have Python 3 installed.
+2. Clone this repository:
 
 
 
