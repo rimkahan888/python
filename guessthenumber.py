@@ -40,6 +40,12 @@ def explain_generate_target_number():
     """
     print("Explanation: We generate a random number at the start of the game.")
 
+def explain_get_user_guess():
+    """
+    This function would normally allow the player to type in a guess.
+    Currently, we just use a fixed number for demonstration.
+    """
+    print("Explanation: The player is asked for a guess.")
 
 
 
