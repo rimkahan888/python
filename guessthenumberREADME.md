@@ -16,6 +16,9 @@ It’s deliberately incomplete and meant for practicing Git workflows by committ
 2. Clone this repository:
 
 
+## Usage
+
+Run the script from the terminal:
 
 
 
