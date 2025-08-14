@@ -6,3 +6,31 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Core game data
+TARGET_NUMBER = None
+MAX_ATTEMPTS = 5
+attempts_made = 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
