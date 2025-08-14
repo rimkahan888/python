@@ -20,6 +20,10 @@ It’s deliberately incomplete and meant for practicing Git workflows by committ
 
 Run the script from the terminal:
 
+## Notes
+
+This script is intentionally incomplete and non-functional.
+It exists only for learning Git commands and simulating a feature-by-feature commit process.
 
 
 
