@@ -12,6 +12,11 @@ TARGET_NUMBER = None
 MAX_ATTEMPTS = 5
 attempts_made = 0
 
+def generate_target_number():
+    # Placeholder function to set target number
+    global TARGET_NUMBER
+    TARGET_NUMBER = random.randint(1, 10)
+    print("[DEBUG] Target number generated")
 
 
 
