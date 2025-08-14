@@ -32,6 +32,13 @@ def check_guess(guess):
     else:
         print("Wrong guess! (Placeholder)")
 
+def explain_generate_target_number():
+    """
+    This function explains what generate_target_number() does.
+    In reality, it will pick a random integer between 1 and 10.
+    For now, this explanation replaces real functionality.
+    """
+    print("Explanation: We generate a random number at the start of the game.")
 
 
 
