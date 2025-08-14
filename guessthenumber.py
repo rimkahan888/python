@@ -47,6 +47,13 @@ def explain_get_user_guess():
     """
     print("Explanation: The player is asked for a guess.")
 
+def explain_check_guess():
+    """
+    This function checks if the guessed number is equal to the target.
+    If equal: you win; else: you lose.
+    Currently, it just prints placeholder messages.
+    """
+    print("Explanation: We compare the user's guess to the target number.")
 
 
 
