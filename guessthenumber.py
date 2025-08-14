@@ -67,6 +67,16 @@ def handle_errors():
     except ValueError:
         print("[ERROR] Invalid guess! Please enter a number.")
 
+def validate_guess(guess):
+    """
+    Placeholder validation: ensures guess is between 1 and 10.
+    """
+    if 1 <= guess <= 10:
+        print("Guess is valid.")
+        return True
+    else:
+        print("Guess out of range.")
+        return False
 
 
 
