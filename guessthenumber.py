@@ -55,6 +55,17 @@ def explain_check_guess():
     """
     print("Explanation: We compare the user's guess to the target number.")
 
+def handle_errors():
+    """
+    Placeholder for handling input errors.
+    Will eventually catch ValueError if the user inputs invalid data.
+    Currently prints simulated error handling.
+    """
+    try:
+        guess = "not_a_number"
+        int(guess)  # This will fail intentionally
+    except ValueError:
+        print("[ERROR] Invalid guess! Please enter a number.")
 
 
 
