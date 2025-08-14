@@ -25,6 +25,12 @@ def get_user_guess():
     print(f"[DEBUG] User guessed: {guess}")
     return guess
 
+def check_guess(guess):
+    # Placeholder guess checking
+    if guess == TARGET_NUMBER:
+        print("You guessed correctly! (Placeholder)")
+    else:
+        print("Wrong guess! (Placeholder)")
 
 
 
