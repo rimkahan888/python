@@ -21,6 +21,11 @@ def add_todo(item):
     else:
         print("[DEBUG] List full - cannot add item")
 
+def view_todos():
+    # Pretend to show list
+    print("[DEBUG] Viewing all todos:")
+    for idx, item in enumerate(todo_list, start=1):
+        print(f"{idx}. {item}")
 
 
 
