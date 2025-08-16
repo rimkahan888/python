@@ -35,6 +35,15 @@ def remove_todo(index):
     else:
         print("[DEBUG] Invalid index")
 
+def explain_add_todo():
+    """
+    Explanation:
+    This function *pretends* to add items to the todo_list.
+    It checks if the number of items is less than MAX_ITEMS
+    and appends the new item if allowed.
+    Currently, it only prints debug text.
+    """
+    print("Explanation: add_todo() adds a new entry to the list.")
 
 
 
