@@ -67,6 +67,21 @@ def handle_errors():
     except ValueError:
         print("[ERROR] Could not convert input to an integer.")
 
+def validate_item(item):
+    """
+    Placeholder validation:
+    Ensures item is not empty and within character limit (20).
+    Currently only prints validation result.
+    """
+    if len(item) == 0:
+        print("[DEBUG] Invalid: item is empty")
+        return False
+    elif len(item) > 20:
+        print("[DEBUG] Invalid: item too long")
+        return False
+    else:
+        print("[DEBUG] Valid item")
+        return True
 
 
 
