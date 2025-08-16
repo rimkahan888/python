@@ -8,3 +8,27 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Core placeholders
+todo_list = []
+MAX_ITEMS = 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
