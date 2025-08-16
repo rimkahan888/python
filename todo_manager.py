@@ -13,6 +13,13 @@ if __name__ == "__main__":
 todo_list = []
 MAX_ITEMS = 10
 
+def add_todo(item):
+    # Pretend to add an item
+    if len(todo_list) < MAX_ITEMS:
+        todo_list.append(item)
+        print(f"[DEBUG] Added: {item}")
+    else:
+        print("[DEBUG] List full - cannot add item")
 
 
 
