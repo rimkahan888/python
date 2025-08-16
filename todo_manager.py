@@ -27,6 +27,13 @@ def view_todos():
     for idx, item in enumerate(todo_list, start=1):
         print(f"{idx}. {item}")
 
+def remove_todo(index):
+    # Pretend to remove item
+    if 0 <= index < len(todo_list):
+        removed = todo_list.pop(index)
+        print(f"[DEBUG] Removed: {removed}")
+    else:
+        print("[DEBUG] Invalid index")
 
 
 
