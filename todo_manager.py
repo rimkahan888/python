@@ -54,6 +54,18 @@ def explain_view_todos():
     """
     print("Explanation: view_todos() displays all items in todo_list.")
 
+def handle_errors():
+    """
+    Placeholder function for error handling.
+    Example: catching invalid index or wrong inputs.
+    This is intentionally only half-working.
+    """
+    try:
+        fake_input = "abc"
+        index = int(fake_input)  # This will fail
+        remove_todo(index)
+    except ValueError:
+        print("[ERROR] Could not convert input to an integer.")
 
 
 
