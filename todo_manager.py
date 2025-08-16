@@ -45,6 +45,14 @@ def explain_add_todo():
     """
     print("Explanation: add_todo() adds a new entry to the list.")
 
+def explain_view_todos():
+    """
+    Explanation:
+    This function simulates displaying all todos in the list.
+    It simply loops through the todo_list and prints them
+    with an index number for clarity.
+    """
+    print("Explanation: view_todos() displays all items in todo_list.")
 
 
 
